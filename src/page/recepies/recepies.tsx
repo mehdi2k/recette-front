@@ -18,27 +18,27 @@ const Recepies: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      await fetch(`http://localhost:8080/recette/delete/${id}`, {
+      await fetch(`http://localhost:8080/recette/delette/${id}`, {
         method: 'DELETE',
       });
       setData((prevData) => prevData.filter((recipe) => recipe.id !== id));
-      setEditingRecipe(null); // Clear editing state after delete
+      setEditingRecipe(null); 
     } catch (error) {
       console.error('Error deleting recipe:', error);
     }
   };
 
   const handleUpdate = async (id: number) => {
-    // Implement update logic here
-    // You can use a modal or another form for editing
-    // Update the state to reflect the changes
-    setEditingRecipe(null); // Clear editing state after update
+
+    setEditingRecipe(null); 
   };
 
   const handleEdit = (recipe: Recipe) => {
     setEditingRecipe(recipe);
   };
 
+
+  
   return (
     <PageContainer>
       <h1>Recipes</h1>
@@ -81,16 +81,13 @@ const Recepies: React.FC = () => {
                 {editingRecipe && editingRecipe.id === recipe.id && (
                   <tr>
                     <td colSpan={4}>
-                      {/* Render your update form here */}
-                      {/* You can use a separate component or a form inline */}
-                      {/* Example: */}
+                   
                       <form
                         onSubmit={(e) => {
                           e.preventDefault();
                           handleUpdate(recipe.id);
                         }}
                       >
-                        {/* Your update form fields go here */}
                         <Button type="submit">Update</Button>
                       </form>
                     </td>

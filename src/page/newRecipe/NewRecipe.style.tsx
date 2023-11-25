@@ -38,3 +38,9 @@ border: 1px solid;
   }
 `;
 InputForm.displayName = 'InputForm';
+
+export const ErrorSpan = styled.span`
+  color: red;
+
+`;
+ErrorSpan.displayName = 'ErrorSpan';
